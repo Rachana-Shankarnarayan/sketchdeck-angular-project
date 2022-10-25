@@ -10,6 +10,12 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
   
   heroes: Hero[] = [];
+
+  
+  selectedHero?: Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
   
 
   constructor(private heroService: HeroService) {}
@@ -23,6 +29,8 @@ export class HeroesComponent implements OnInit {
     for (var id of heroIds) {
       this.heroService.getHero(id).subscribe(resp => this.heroes.push(resp))
     }
+
+    
 
     // this.heroes = this.heroService.getHeros();
   }
