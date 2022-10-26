@@ -26,8 +26,14 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     const heroIds = [12, 13, 14, 15, 16, 17, 18, 19, 20];
+    
     for (var id of heroIds) {
-      this.heroService.getHero(id).subscribe(resp => this.heroes.push(resp))
+      let imageUrl = `https:\/\/www.superherodb.com\/pictures2\/portraits\/10\/100\/${id}.jpg`
+      this.heroService.getHero(id).subscribe(resp => {
+        resp.image = imageUrl
+        this.heroes.push(resp)
+      })
+      this.heroes.sort((a, b)=> a.id - b.id)
     }
 
     

@@ -1,17 +1,16 @@
 <div *ngIf="hero">
   <h2>{{ hero.name }} Details</h2>
   <div><span>Hero name : </span>{{ hero.name }}</div>
-  <div><span>id : </span>{{ hero.id }}</div>
-  <div><span>age : </span>{{ hero.age }}</div>
-</div>
-<!--
-<div *ngIf="hero">
-
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
+  <div><span>Id : </span>{{ hero.id }}</div>
+  <div><span>Age : </span>{{ hero.age }}</div>
   <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    <span>Pic : </span
+    ><img
+      *ngIf="hero.image"
+      [attr.width]="'100px'"
+      [attr.height]="'100px'"
+      [src]="hero.image"
+      [alt]="'Missing from database'"
+    />
   </div>
-
-</div> -->
+</div>
